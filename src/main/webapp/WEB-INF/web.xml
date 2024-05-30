@@ -55,4 +55,26 @@
         <servlet-name>LogoutServlet</servlet-name>
         <url-pattern>/logout</url-pattern>
     </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>AddGoalServlet</servlet-name>
+        <servlet-class>com.financetracker.personalfinancetracker.AddGoalServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddGoalServlet</servlet-name>
+        <url-pattern>/addGoal</url-pattern>
+    </servlet-mapping>
+    
+    <filter>
+    	<filter-name>SessionFilter</filter-name>
+		<filter-class>com.financetracker.personalfinancetracker.SessionFilter</filter-class>
+		<init-param>
+			<param-name>includedUrls</param-name>
+			<param-value>/personal-finance-tracker/dashboard.jsp, /personal-finance-tracker/accountCreation.jsp, /personal-finance-tracker/accountShow.jsp, /personal-finance-tracker/transaction.jsp, /personal-finance-tracker/transactionShow.jsp, /personal-finance-tracker/addGoal.jsp, /personal-finance-tracker/listGoal.jsp</param-value>
+		</init-param>
+    </filter>
+    <filter-mapping>
+    	<filter-name>SessionFilter</filter-name>
+    	<url-pattern>/*</url-pattern>
+    </filter-mapping>
 </web-app>

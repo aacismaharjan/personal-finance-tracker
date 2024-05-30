@@ -1,22 +1,21 @@
 <%@ page session="true" %>
-<%
-    String user = (String) session.getAttribute("user");
-    if (user == null) {
-        response.sendRedirect("login.jsp");
-        return;
-    }
-%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Dashboard</title>
+    <%@ include file="includes/head.jsp" %>
+    <title>Dashboard - <%= session.getAttribute("user") %></title>
 </head>
-<body>
-    <h1>Welcome, <%= user %>!</h1>
-    <a href="accountShow.jsp">Account Show</a><br/>
-    <a href="transactionShow.jsp">Transaction Show</a><br/>
-    <a href="transaction.jsp">Transaction</a><br/>
-    <a href="accountCreation.jsp">Account Creation</a><br/>
-    <a href="logout">Logout</a>
+<body class="bg-gray-100">
+	<div class="mycontainer">
+		<div class="sidebar">
+			<%@ include file="includes/sidebar.jsp" %>
+		</div>
+		<div class="main">
+   			<div class="container mx-auto px-4 py-8">
+		        <h2 class="text-2xl font-semibold mb-4">Dashboard Content</h2>
+		        <!-- Add your dashboard content here -->
+		    </div>
+		</div>
+	</div>
 </body>
 </html>
